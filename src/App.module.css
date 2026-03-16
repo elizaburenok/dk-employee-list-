@@ -1,0 +1,12 @@
+.root {
+  min-height: 100vh;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: var(--color-page-secondary);
+  color: var(--color-primitive-primary);
+  font-family: var(--font-family-primary);
+}
+
+.content {
+  min-height: 100vh;
+}

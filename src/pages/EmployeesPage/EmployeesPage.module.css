@@ -1,0 +1,517 @@
+.root {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-height: 100vh;
+  color: var(--color-primitive-primary);
+}
+
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-m);
+  padding: var(--spacing-s) var(--spacing-6x);
+  border-bottom: 1px solid var(--color-container-transparent-1);
+}
+
+.logo {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-m);
+  line-height: var(--line-height-m);
+  font-weight: var(--font-weight-demi-bold);
+}
+
+.topNav {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-s);
+}
+
+.topNavItem {
+  border: none;
+  background: none;
+  padding: var(--spacing-1x) var(--spacing-s);
+  border-radius: var(--rounding-2-5x);
+  color: var(--color-primitive-primary);
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.topNavItem:hover {
+  background-color: var(--color-container-transparent-1);
+}
+
+.topProfile {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.topProfileAvatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--spacing-m);
+  height: var(--spacing-m);
+  border-radius: 50%;
+  background-color: var(--color-bg-brand-3);
+  color: var(--color-primitive-secondary);
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+}
+
+.topProfileName {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+}
+
+.pageLayout {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr) 260px;
+  gap: var(--spacing-6x);
+  padding: var(--spacing-6x) 20px var(--spacing-6x) 0;
+  align-items: start;
+}
+
+.pageTitleColumn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.backButton {
+  width: var(--spacing-8x);
+  height: var(--spacing-8x);
+  border: 1px solid var(--color-container-transparent-1);
+  border-radius: var(--rounding-2-5x);
+  background-color: var(--color-bg-default);
+  color: var(--color-primitive-primary);
+  font-size: var(--font-size-m);
+  line-height: var(--line-height-m);
+  cursor: pointer;
+}
+
+.pageTitle {
+  margin: 0;
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-m);
+  line-height: var(--line-height-m);
+  font-weight: var(--font-weight-demi-bold);
+}
+
+.mainColumn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-m);
+  width: 720px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-s);
+}
+
+.periodicitySection {
+  margin-bottom: var(--spacing-s);
+}
+
+.periodicityBanner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-xl);
+  padding: var(--spacing-m);
+  background-color: var(--color-bg-brand-1);
+  border-radius: var(--rounding-4-5x);
+}
+
+.periodicityBannerLeft {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-s);
+  padding: 0 var(--spacing-s);
+  margin-left: 0;
+}
+
+.periodicityAvatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--spacing-xl);
+  height: var(--spacing-xl);
+  border-radius: 50%;
+  background-color: var(--color-bg-brand-2);
+}
+
+.periodicityAvatarFill {
+  display: none;
+}
+
+.periodicityAvatarIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--spacing-m);
+  height: var(--spacing-m);
+  border-radius: 50%;
+  background-color: var(--color-bg-brand-3);
+  color: var(--color-bg-brand);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+}
+
+.periodicityText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1x);
+  padding-left: var(--spacing-s);
+}
+
+.periodicityTitle {
+  margin: 0;
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-m);
+  line-height: var(--line-height-m);
+  color: var(--color-primitive-primary);
+}
+
+.periodicityDescription {
+  margin: 0;
+  max-width: 330px;
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+  letter-spacing: var(--letter-spacing-xs);
+  color: var(--color-primitive-secondary);
+}
+
+.periodicityEmployeeGrid {
+  display: flex;
+  justify-content: flex-end;
+  width: 300px;
+}
+
+.periodicityEmployeeList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1x);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.periodicityEmployeeListItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-s);
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+}
+
+.periodicityEmployeeName {
+  color: var(--color-primitive-primary);
+}
+
+.periodicityEmployeePeriodicity {
+  color: var(--color-primitive-secondary);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.scheduleSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-m);
+}
+
+.scheduleDay {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.scheduleDayHeader {
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+  color: var(--color-primitive-secondary);
+}
+
+.scheduleDayEmployees {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-s);
+}
+
+.scheduleEmployeeRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-s);
+  text-decoration: none;
+  color: inherit;
+}
+
+.scheduleEmployeeRow:hover .employeeInfoCell,
+.scheduleEmployeeRow:hover .scheduleEmployeeMeeting {
+  opacity: 0.5;
+}
+
+.employeeIdentity {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-s);
+  min-width: 0;
+}
+
+.employeeAvatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--spacing-11x);
+  height: var(--spacing-11x);
+  border-radius: 50%;
+  background-color: var(--color-container-transparent-1);
+  color: var(--color-primitive-primary);
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+.employeeInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1x);
+  min-width: 0;
+}
+
+.employeeInfoCell {
+  padding: 0;
+}
+
+.employeeRoleRow {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1x);
+}
+
+.employeeRole {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+  color: var(--color-primitive-secondary);
+}
+
+.employeeRoleBadge {
+  color: var(--color-bg-brand);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+}
+
+.employeeName {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-m);
+  line-height: var(--line-height-m);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-primitive-primary);
+}
+
+.scheduleEmployeeMeeting {
+  min-width: 150px;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-s);
+}
+
+.sidebarWidget {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-s);
+  padding: var(--spacing-m);
+  border-radius: var(--rounding-3x);
+  border: 1px solid var(--color-container-transparent-1);
+  background-color: var(--color-bg-default);
+}
+
+.sidebarWidgetTitle {
+  margin: 0;
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-m);
+  line-height: var(--line-height-m);
+  font-weight: var(--font-weight-demi-bold);
+}
+
+.sidebarWidgetSummary {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-1x);
+}
+
+.sidebarSummaryLabel {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-m);
+  line-height: var(--line-height-m);
+  font-weight: var(--font-weight-demi-bold);
+}
+
+.sidebarSummaryValue {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+  color: var(--color-primitive-secondary);
+}
+
+.periodicityBar {
+  display: grid;
+  grid-template-columns: 5fr 4fr 3fr;
+  gap: var(--spacing-1x);
+}
+
+.periodicityBarItemWeekly,
+.periodicityBarItemBiWeekly,
+.periodicityBarItemMonthly {
+  display: block;
+  height: var(--spacing-1x);
+  border-radius: var(--rounding-1x);
+}
+
+.periodicityBarItemWeekly {
+  background-color: var(--color-category-coral);
+}
+
+.periodicityBarItemBiWeekly {
+  background-color: var(--color-category-orchid);
+}
+
+.periodicityBarItemMonthly {
+  background-color: var(--color-category-indigo);
+}
+
+.sidebarPeriodicityList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1x);
+  margin: 0;
+  padding-left: var(--spacing-s);
+  color: var(--color-primitive-secondary);
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+}
+
+.sidebarPeriodicityRow {
+  margin: 0;
+}
+
+.sidebarWidgetDescription {
+  margin: 0;
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-m);
+  line-height: var(--line-height-m);
+  color: var(--color-primitive-secondary);
+}
+
+.sidebarAction {
+  align-self: flex-start;
+  padding: var(--spacing-xs) var(--spacing-m);
+  border: none;
+  border-radius: var(--rounding-2-5x);
+  background-color: var(--color-container-transparent-1);
+  color: var(--color-primitive-primary);
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-m);
+  line-height: var(--line-height-m);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+}
+
+.allActivities {
+  border: none;
+  background: none;
+  padding: var(--spacing-s) 0;
+  text-align: left;
+  color: var(--color-primitive-primary);
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-m);
+  line-height: var(--line-height-m);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+}
+
+@media (max-width: 1180px) {
+  .pageLayout {
+    grid-template-columns: 180px minmax(0, 1fr);
+  }
+
+  .sidebar {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-s);
+  }
+
+  .allActivities {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 900px) {
+  .topNav {
+    display: none;
+  }
+
+  .pageLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .pageTitleColumn {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--spacing-s);
+  }
+
+  .filters {
+    overflow-x: auto;
+  }
+
+  .periodicityBanner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .periodicityEmployeeGrid {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .scheduleEmployeeRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .scheduleEmployeeMeeting {
+    min-width: 0;
+  }
+
+  .sidebar {
+    grid-template-columns: 1fr;
+  }
+}
