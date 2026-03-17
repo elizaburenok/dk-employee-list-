@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
-import path from 'node:path';
+import path from 'path';
 
 export default defineConfig({
   base: '/dk-employee-list-/',
@@ -10,5 +10,8 @@ export default defineConfig({
       '@': path.resolve(__dirname, '.'),
       '@tokens': path.resolve(__dirname, 'tokens'),
     },
+  },
+  build: {
+    outDir: 'docs',
   },
 });
