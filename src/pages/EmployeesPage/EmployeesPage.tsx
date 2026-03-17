@@ -10,10 +10,12 @@ import styles from './EmployeesPage.module.css';
 
 type EmployeeScheduleItem = {
   id: string;
-  fullName: string;
+  name: string;
   role: string;
-  meetingNumber: number;
-  periodicity: MeetingPeriodicity;
+  circle: string;
+  team: string;
+  upcomingMeetings: number;
+  periodicityType: MeetingPeriodicity;
   hasPriorityIcon?: boolean;
 };
 
@@ -27,25 +29,20 @@ type MeetingPeriodicity = 'weekly' | 'biweekly' | 'monthly';
 
 type EmployeePeriodicity = {
   id: string;
-  fullName: string;
-  periodicity: MeetingPeriodicity;
+  name: string;
+  periodicityType: MeetingPeriodicity;
 };
 
 const EMPLOYEES_WITH_FINISHING_PERIODICITY: EmployeePeriodicity[] = [
   {
     id: 'ep1',
-    fullName: 'Кузнецова Ольга',
-    periodicity: 'weekly',
+    name: 'Леманская Елена',
+    periodicityType: 'weekly',
   },
   {
     id: 'ep2',
-    fullName: 'Морозова Екатерина',
-    periodicity: 'biweekly',
-  },
-  {
-    id: 'ep3',
-    fullName: 'Петров Максим',
-    periodicity: 'weekly',
+    name: 'Токманцева Наталья',
+    periodicityType: 'biweekly',
   },
 ];
 
@@ -57,30 +54,136 @@ const PERIODICITY_LABELS: Record<MeetingPeriodicity, string> = {
 
 const employeeSchedule: EmployeeScheduleDay[] = [
   {
+    id: '2026-03-18',
+    dateLabel: '18 марта',
+    employees: [
+      {
+        id: 'e1',
+        name: 'Леманская Елена Александровна',
+        role: 'Специалист',
+            circle: 'Экспертный офис',
+            team: 'DeLorean',
+        hasPriorityIcon: true,
+        upcomingMeetings: 8,
+        periodicityType: 'biweekly',
+      },
+      {
+        id: 'e2',
+        name: 'Лященко Мария Александровна',
+        role: 'Специалист',
+            circle: 'Экспертный офис',
+            team: 'DeLorean',
+        upcomingMeetings: 2,
+        periodicityType: 'weekly',
+      },
+      {
+        id: 'e3',
+        name: 'Ростова Олеся Александровна ',
+        role: ' Эксперт ',
+            circle: 'Экспертный офис',
+            team: 'DeLorean',
+        upcomingMeetings: 1,
+        periodicityType: 'biweekly',
+      },
+    ],
+  },
+  {
+    id: '2026-03-19',
+    dateLabel: '19 марта',
+    employees: [
+      {
+        id: 'e4',
+        name: 'Буренкова Софья Алексеевна',
+        role: 'Эксперт',
+            circle: 'Экспертный офис',
+            team: 'DeLorean',
+        upcomingMeetings: 1,
+        periodicityType: 'monthly',
+      },
+      {
+        id: 'e5',
+        name: 'Токманцева Наталья Сергеевна  ',
+        role: 'Эксперт',
+            circle: 'Экспертный офис',
+            team: 'DeLorean',
+        hasPriorityIcon: true,
+        upcomingMeetings: 6,
+        periodicityType: 'monthly',
+      },
+      {
+        id: 'e6',
+        name: 'Дурягина Алина Максимовна ',
+        role: 'Дайвер',
+            circle: 'Экспертный офис',
+            team: 'DeLorean',
+        upcomingMeetings: 3,
+        periodicityType: 'weekly',
+      },
+    ],
+  },
+  {
+    id: '2026-03-20',
+    dateLabel: '20 марта',
+    employees: [
+      {
+        id: 'e7',
+        name: 'Зайцева Наталья Андреевна',
+        role: 'Дайвер',
+            circle: 'Экспертный офис',
+            team: 'DeLorean',
+        upcomingMeetings: 2,
+        periodicityType: 'biweekly',
+      },
+      {
+        id: 'e8',
+        name: 'Иванов Артём Дмитриевич',
+        role: 'Дайвер',
+            circle: 'Экспертный офис',
+            team: 'DeLorean',
+        upcomingMeetings: 3,
+        periodicityType: 'weekly',
+      },
+      {
+        id: 'e9',
+        name: 'Кириллова Софья Максимовна',
+        role: 'Дайвер',
+            circle: 'Экспертный офис',
+            team: 'DeLorean',
+        upcomingMeetings: 1,
+        periodicityType: 'weekly',
+      },
+    ],
+  },
+  {
     id: '2026-03-23',
     dateLabel: '23 марта',
     employees: [
       {
-        id: 'e1',
-        fullName: 'Агафонов Илья Сергеевич',
+        id: 'e10',
+        name: 'Леонтьев Никита Игоревич',
         role: 'Дайвер',
-        meetingNumber: 1,
-        periodicity: 'weekly',
+            circle: 'Экспертный офис',
+            team: 'DeLorean',
+        upcomingMeetings: 2,
+        periodicityType: 'monthly',
       },
       {
-        id: 'e2',
-        fullName: 'Борисова Анна Викторовна',
+        id: 'e11',
+        name: 'Морозова Ольга Петровна',
         role: 'Дайвер',
-        hasPriorityIcon: true,
-        meetingNumber: 2,
-        periodicity: 'biweekly',
+            circle: 'Экспертный офис',
+            team: 'DeLorean',
+        upcomingMeetings: 4,
+        periodicityType: 'weekly',
       },
       {
-        id: 'e3',
-        fullName: 'Громов Павел Андреевич',
+        id: 'e12',
+        name: 'Николаева Дарья Сергеевна',
         role: 'Дайвер',
-        meetingNumber: 3,
-        periodicity: 'monthly',
+            circle: 'Экспертный офис',
+            team: 'DeLorean',
+        upcomingMeetings: 1,
+        periodicityType: 'biweekly',
       },
     ],
   },
@@ -89,26 +192,31 @@ const employeeSchedule: EmployeeScheduleDay[] = [
     dateLabel: '24 марта',
     employees: [
       {
-        id: 'e4',
-        fullName: 'Демидова Мария Алексеевна',
+        id: 'e13',
+        name: 'Орлов Михаил Евгеньевич',
         role: 'Дайвер',
-        meetingNumber: 1,
-        periodicity: 'weekly',
+            circle: 'Экспертный офис',
+            team: 'DeLorean',
+        upcomingMeetings: 3,
+        periodicityType: 'weekly',
       },
       {
-        id: 'e5',
-        fullName: 'Егоров Кирилл Михайлович',
+        id: 'e14',
+        name: 'Павлова Елена Константиновна',
         role: 'Дайвер',
-        meetingNumber: 2,
-        periodicity: 'weekly',
+            circle: 'Экспертный офис',
+            team: 'DeLorean',
+        upcomingMeetings: 2,
+        periodicityType: 'monthly',
       },
       {
-        id: 'e6',
-        fullName: 'Журавлёва Ольга Петровна',
+        id: 'e15',
+        name: 'Романов Степан Олегович',
         role: 'Дайвер',
-        hasPriorityIcon: true,
-        meetingNumber: 1,
-        periodicity: 'monthly',
+            circle: 'Экспертный офис',
+            team: 'DeLorean',
+        upcomingMeetings: 1,
+        periodicityType: 'weekly',
       },
     ],
   },
@@ -117,89 +225,41 @@ const employeeSchedule: EmployeeScheduleDay[] = [
     dateLabel: '25 марта',
     employees: [
       {
-        id: 'e7',
-        fullName: 'Зайцева Наталья Андреевна',
+        id: 'e16',
+        name: 'Семёнова Ирина Павловна',
         role: 'Дайвер',
-        meetingNumber: 2,
-        periodicity: 'biweekly',
+            circle: 'Экспертный офис',
+            team: 'DeLorean',
+        upcomingMeetings: 2,
+        periodicityType: 'weekly',
       },
       {
-        id: 'e8',
-        fullName: 'Иванов Артём Дмитриевич',
+        id: 'e17',
+        name: 'Тихонов Алексей Романович',
         role: 'Дайвер',
-        meetingNumber: 3,
-        periodicity: 'weekly',
+            circle: 'Экспертный офис',
+            team: 'DeLorean',
+        upcomingMeetings: 1,
+        periodicityType: 'biweekly',
       },
       {
-        id: 'e9',
-        fullName: 'Кириллова Софья Максимовна',
+        id: 'e18',
+        name: 'Фёдорова Марина Игоревна',
         role: 'Дайвер',
-        meetingNumber: 1,
-        periodicity: 'weekly',
-      },
-    ],
-  },
-  {
-    id: '2026-03-26',
-    dateLabel: '26 марта',
-    employees: [
-      {
-        id: 'e10',
-        fullName: 'Леонтьев Никита Игоревич',
-        role: 'Дайвер',
-        meetingNumber: 2,
-        periodicity: 'monthly',
-      },
-      {
-        id: 'e11',
-        fullName: 'Морозова Ольга Петровна',
-        role: 'Дайвер',
-        meetingNumber: 4,
-        periodicity: 'weekly',
-      },
-      {
-        id: 'e12',
-        fullName: 'Николаева Дарья Сергеевна',
-        role: 'Дайвер',
-        meetingNumber: 1,
-        periodicity: 'biweekly',
-      },
-    ],
-  },
-  {
-    id: '2026-03-27',
-    dateLabel: '27 марта',
-    employees: [
-      {
-        id: 'e13',
-        fullName: 'Орлов Михаил Евгеньевич',
-        role: 'Дайвер',
-        meetingNumber: 3,
-        periodicity: 'weekly',
-      },
-      {
-        id: 'e14',
-        fullName: 'Павлова Елена Константиновна',
-        role: 'Дайвер',
-        meetingNumber: 2,
-        periodicity: 'monthly',
-      },
-      {
-        id: 'e15',
-        fullName: 'Романов Степан Олегович',
-        role: 'Дайвер',
-        meetingNumber: 1,
-        periodicity: 'weekly',
+            circle: 'Экспертный офис',
+            team: 'DeLorean',
+        upcomingMeetings: 3,
+        periodicityType: 'monthly',
       },
     ],
   },
 ];
 
 const sortEmployeesByName = (employees: EmployeeScheduleItem[]): EmployeeScheduleItem[] =>
-  [...employees].sort((a, b) => a.fullName.localeCompare(b.fullName, 'ru-RU'));
+  [...employees].sort((a, b) => a.name.localeCompare(b.name, 'ru-RU'));
 
-const getInitials = (fullName: string): string => {
-  const [lastName, firstName] = fullName.split(' ');
+const getInitials = (name: string): string => {
+  const [lastName, firstName] = name.split(' ');
   return `${lastName?.[0] ?? ''}${firstName?.[0] ?? ''}`.toUpperCase();
 };
 
@@ -274,9 +334,9 @@ const EmployeesPage: React.FC = () => {
                   <ul className={styles.periodicityEmployeeList}>
                     {EMPLOYEES_WITH_FINISHING_PERIODICITY.map((employee) => (
                       <li key={employee.id} className={styles.periodicityEmployeeListItem}>
-                        <span className={styles.periodicityEmployeeName}>{employee.fullName}</span>
+                        <span className={styles.periodicityEmployeeName}>{employee.name}</span>
                         <span className={styles.periodicityEmployeePeriodicity}>
-                          {PERIODICITY_LABELS[employee.periodicity]}
+                          {PERIODICITY_LABELS[employee.periodicityType]}
                         </span>
                       </li>
                     ))}
@@ -300,12 +360,18 @@ const EmployeesPage: React.FC = () => {
                       tabIndex={0}
                       onClick={() =>
                         navigate(`/employees/${employee.id}`, {
-                          state: { employeeFullName: employee.fullName, meetingDateLabel: day.dateLabel },
+                          state: {
+                            employeeFullName: employee.name,
+                            meetingDateLabel: day.dateLabel,
+                            role: employee.role,
+                            circle: employee.circle,
+                            team: employee.team,
+                          },
                         })
                       }
                     >
                       <div className={styles.employeeIdentity}>
-                        <div className={styles.employeeAvatar}>{getInitials(employee.fullName)}</div>
+                        <div className={styles.employeeAvatar}>{getInitials(employee.name)}</div>
                         <div className={styles.employeeInfo}>
                           <Cell
                             size="L"
@@ -317,7 +383,7 @@ const EmployeesPage: React.FC = () => {
                                 : employee.role
                             }
                           >
-                            {employee.fullName}
+                            {employee.name}
                           </Cell>
                         </div>
                       </div>
@@ -326,9 +392,9 @@ const EmployeesPage: React.FC = () => {
                         variant="neutral"
                         align="right"
                         className={styles.scheduleEmployeeMeeting}
-                        label={PERIODICITY_LABELS[employee.periodicity]}
+                        label={PERIODICITY_LABELS[employee.periodicityType]}
                       >
-                        {`${employee.meetingNumber} встреча`}
+                        {`${employee.upcomingMeetings} встреча`}
                       </Cell>
                     </div>
                   ))}

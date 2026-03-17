@@ -47,47 +47,103 @@ const PERIODICITY_LABELS: Record<MeetingPeriodicity, string> = {
 
 const EMPLOYEE_CYCLE_PROGRESS_BY_ID: Record<string, EmployeeCycleProgress> = {
   e2: {
-    completedInCycle: 8,
-    totalInCycle: 20,
+    completedInCycle: 14,
+    totalInCycle: 15,
     periodicities: [
-      { periodicity: 'weekly', completedMeetings: 8, totalMeetings: 8 },
-      { periodicity: 'biweekly', completedMeetings: 5, totalMeetings: 8 },
-      { periodicity: 'monthly', completedMeetings: 0, totalMeetings: 4 },
+      { periodicity: 'weekly', completedMeetings: 7, totalMeetings: 7 },
+      { periodicity: 'biweekly', completedMeetings: 7, totalMeetings: 8 },
+      { periodicity: 'monthly', completedMeetings: 0, totalMeetings: 0 },
     ],
   },
 };
 
 const EMPLOYEE_MEETING_HISTORY_BY_ID: Record<string, MeetingHistoryItem[]> = {
   e2: [
+    // Раз в две недели
     {
-      id: 'm1',
-      name: '1 встреча: постановка целей',
-      date: '15 января 2026',
-      periodicity: 'weekly',
-    },
-    {
-      id: 'm2',
-      name: '2 встреча: разбор итогов недели',
-      date: '22 января 2026',
-      periodicity: 'weekly',
-    },
-    {
-      id: 'm3',
-      name: '3 встреча: корректировка плана',
-      date: '5 февраля 2026',
+      id: 'b7',
+      name: '7 встреча',
+      date: '1 марта',
       periodicity: 'biweekly',
     },
     {
-      id: 'm4',
-      name: '4 встреча: обсуждение развития',
-      date: '19 февраля 2026',
+      id: 'b6',
+      name: '6 встреча',
+      date: '14 февраля',
       periodicity: 'biweekly',
     },
     {
-      id: 'm5',
-      name: 'Встреча по итогам месяца',
-      date: '28 февраля 2026',
-      periodicity: 'monthly',
+      id: 'b5',
+      name: '5 встреча: Мастермайнд',
+      date: 'Встреча прошла',
+      periodicity: 'biweekly',
+    },
+    {
+      id: 'b4',
+      name: '4 встреча',
+      date: '27 января',
+      periodicity: 'biweekly',
+    },
+    {
+      id: 'b3',
+      name: '3 встреча',
+      date: '3 декабря',
+      periodicity: 'biweekly',
+    },
+    {
+      id: 'b2',
+      name: '2 встреча',
+      date: '20 ноября',
+      periodicity: 'biweekly',
+    },
+    {
+      id: 'b1',
+      name: '1 встреча',
+      date: '20 октября',
+      periodicity: 'biweekly',
+    },
+    // Раз в неделю
+    {
+      id: 'w7',
+      name: '7 встреча',
+      date: '10 октября',
+      periodicity: 'weekly',
+    },
+    {
+      id: 'w6',
+      name: '6 встреча',
+      date: '3 октября',
+      periodicity: 'weekly',
+    },
+    {
+      id: 'w5',
+      name: '5 встреча',
+      date: '26 сентября',
+      periodicity: 'weekly',
+    },
+    {
+      id: 'w4',
+      name: '4 встреча',
+      date: '19 сентября',
+      periodicity: 'weekly',
+    },
+    {
+      id: 'w3',
+      name: '3 встреча',
+      date: '12 сентября',
+      periodicity: 'weekly',
+    },
+    {
+      id: 'w2',
+      name: '2 встреча',
+      date: '5 сентября',
+      periodicity: 'weekly',
+    },
+    {
+      id: 'w1',
+      name: '1 встреча',
+      date: '29 августа',
+      periodicity: 'weekly',
     },
   ],
 };
@@ -140,10 +196,25 @@ export const EmployeeProfilePage: React.FC = () => {
     EMPLOYEE_CYCLE_PROGRESS_BY_ID[employeeId ?? ''] ?? DEFAULT_EMPLOYEE_CYCLE_PROGRESS;
   const meetingHistory =
     EMPLOYEE_MEETING_HISTORY_BY_ID[employeeId ?? ''] ?? DEFAULT_EMPLOYEE_MEETING_HISTORY;
-  const { employeeFullName: employeeFullNameFromState, meetingDateLabel } =
-    (location.state as { employeeFullName?: string; meetingDateLabel?: string } | null) ?? {};
+  const {
+    employeeFullName: employeeFullNameFromState,
+    meetingDateLabel,
+    role: roleFromState,
+    circle: circleFromState,
+    team: teamFromState,
+  } =
+    (location.state as {
+      employeeFullName?: string;
+      meetingDateLabel?: string;
+      role?: string;
+      circle?: string;
+      team?: string;
+    } | null) ?? {};
   const employeeFullName = employeeFullNameFromState ?? 'Морозова Екатерина Николаевна';
   const nextMeetingDateLabel = meetingDateLabel ?? '12 марта';
+  const employeeRole = roleFromState ?? 'Дайвер';
+  const employeeCircle = circleFromState ?? 'Экспертный офис';
+  const employeeTeam = teamFromState ?? 'DeLorean';
 
   const progressSegments: ProgressBarSegment[] = cycleProgress.periodicities.map((item) => {
     const percent = getProgressPercent(item.completedMeetings, item.totalMeetings);
@@ -227,13 +298,13 @@ export const EmployeeProfilePage: React.FC = () => {
             <h2 className={styles.sectionTitle}>О сотруднике</h2>
             <div className={styles.sectionList}>
               <Cell size="S" subtitle="Роль">
-                Дайвер
+                {employeeRole}
               </Cell>
               <Cell size="S" subtitle="Круг">
-                Платёжные решения
+                {employeeCircle}
               </Cell>
               <Cell size="S" subtitle="Команда">
-                Название команды
+                {employeeTeam}
               </Cell>
             </div>
           </section>
