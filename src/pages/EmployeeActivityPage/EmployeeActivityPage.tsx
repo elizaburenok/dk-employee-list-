@@ -105,7 +105,7 @@ export const EmployeeActivityPage: React.FC = () => {
             hasBackButton
             hasTextBlock
             hasItems={false}
-            onBackClick={() => navigate(`/employees/${employeeId ?? 'e2'}`)}
+            onBackClick={() => navigate(-1)}
             hasRootLink
             rootLinkText="Качество диалогов"
             onRootLinkClick={() => navigate('/employees')}
