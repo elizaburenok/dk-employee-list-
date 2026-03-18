@@ -37,12 +37,12 @@ const EMPLOYEES_WITH_FINISHING_PERIODICITY: EmployeePeriodicity[] = [
   {
     id: 'ep1',
     name: 'Леманская Елена',
-    periodicityType: 'weekly',
+    periodicityType: 'biweekly',
   },
   {
     id: 'ep2',
     name: 'Токманцева Наталья',
-    periodicityType: 'biweekly',
+    periodicityType: 'monthly',
   },
 ];
 
