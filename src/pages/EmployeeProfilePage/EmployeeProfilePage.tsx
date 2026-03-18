@@ -48,11 +48,11 @@ const PERIODICITY_LABELS: Record<MeetingPeriodicity, string> = {
 const EMPLOYEE_CYCLE_PROGRESS_BY_ID: Record<string, EmployeeCycleProgress> = {
   e2: {
     completedInCycle: 14,
-    totalInCycle: 15,
+    totalInCycle: 20,
     periodicities: [
       { periodicity: 'weekly', completedMeetings: 7, totalMeetings: 7 },
       { periodicity: 'biweekly', completedMeetings: 7, totalMeetings: 8 },
-      { periodicity: 'monthly', completedMeetings: 0, totalMeetings: 0 },
+      { periodicity: 'monthly', completedMeetings: 0, totalMeetings: 5 },
     ],
   },
 };
