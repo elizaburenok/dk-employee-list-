@@ -288,7 +288,21 @@ export const EmployeeProfilePage: React.FC = () => {
                   Пора проверить, готов ли сотрудник перейти на новый график встреч или завершить цикл
                 </p>
               </div>
-              <button type="button" className={styles.notificationAction}>
+              <button
+                type="button"
+                className={styles.notificationAction}
+                onClick={() =>
+                  navigate(`/employees/${employeeId ?? 'e2'}/activity`, {
+                    state: {
+                      employeeFullName,
+                      meetingDateLabel: nextMeetingDateLabel,
+                      role: employeeRole,
+                      circle: employeeCircle,
+                      team: employeeTeam,
+                    },
+                  })
+                }
+              >
                 Перейти в активность встречи
               </button>
             </div>

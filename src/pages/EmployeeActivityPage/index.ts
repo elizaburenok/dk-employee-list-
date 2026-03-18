@@ -1,0 +1,2 @@
+export { EmployeeActivityPage } from './EmployeeActivityPage';
+

@@ -4,6 +4,7 @@ import { Route, Routes, Navigate } from 'react-router-dom';
 import styles from './App.module.css';
 import { EmployeesPage } from './pages/EmployeesPage';
 import { EmployeeProfilePage } from './pages/EmployeeProfilePage';
+import { EmployeeActivityPage } from './pages/EmployeeActivityPage';
 
 const App: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const App: React.FC = () => {
           <Route path="/" element={<Navigate to="/employees" replace />} />
           <Route path="/employees" element={<EmployeesPage />} />
           <Route path="/employees/:employeeId" element={<EmployeeProfilePage />} />
+          <Route path="/employees/:employeeId/activity" element={<EmployeeActivityPage />} />
         </Routes>
       </main>
     </div>
